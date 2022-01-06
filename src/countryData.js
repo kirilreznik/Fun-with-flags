@@ -138,7 +138,6 @@ const countryData = [
   { code: "SR", code3: "SUR", name: "Suriname", number: "740" },
   { code: "SE", code3: "SWE", name: "Sweden", number: "752" },
   { code: "CH", code3: "CHE", name: "Switzerland", number: "756" },
-  { code: "SY", code3: "SYR", name: "Syrian Arab Republic", number: "760" },
   { code: "TW", code3: "TWN", name: "Taiwan", number: "158" },
   { code: "TJ", code3: "TJK", name: "Tajikistan", number: "762" },
   { code: "TZ", code3: "TZA", name: "Tanzania", number: "834" },

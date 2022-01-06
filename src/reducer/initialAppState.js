@@ -7,4 +7,5 @@ export const initialAppState = {
   strikes: [],
   score: 0,
   openAlert: false,
+  status: undefined,
 };

@@ -1,6 +1,11 @@
 import getOptions from "../functions/getOptions";
+import { initialAppState } from "./initialAppState";
 const AppReducer = (state, action) => {
   switch (action.type) {
+    case "CLEAR_STATE":
+      return {
+        ...initialAppState,
+      };
     case "GET_COUNTRY_DATA":
       return action.countryData;
     case "SET_COUNTRY":
@@ -54,6 +59,23 @@ const AppReducer = (state, action) => {
       return {
         ...state,
         openAlert: setAlertState,
+      };
+    case "SET_STATUS_PLAYING":
+      const playing = "playing";
+      return {
+        ...state,
+        status: playing,
+      };
+    case "CLEAR_STATUS":
+      const clear = undefined;
+      return {
+        ...state,
+        status: clear,
+      };
+    case "SET_STATUS_LOST":
+      return {
+        ...state,
+        status: "lost",
       };
     default:
       return state;

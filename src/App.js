@@ -1,4 +1,4 @@
-import { CssBaseline, Box, Button, Avatar, Paper } from "@material-ui/core";
+import { CssBaseline, Box, Button } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useReducer } from "react";
 import AppReducer from "./reducer/AppReducer";
@@ -6,13 +6,11 @@ import AppContext from "./context/app-context";
 import StyledBar from "./components/StyledAppBar";
 import { initialAppState } from "./reducer/initialAppState";
 import Game from "./components/Game";
-import { useState } from "react";
-import TransitionAlerts from "./components/Alert";
+import AlertSlide from "./components/AlertSlide";
 const background = require("./assets/site-background.jpg");
 const btnBackground = require("../src/assets/background.png");
 
 const App = () => {
-  const [status, setStatus] = useState();
   const [state, dispatch] = useReducer(AppReducer, initialAppState);
   useEffect(() => {
     dispatch({ type: "SET_COUNTRY" });
@@ -20,8 +18,8 @@ const App = () => {
   }, [state.countries]);
   useEffect(() => {
     if (state.strikes.length === 3) {
+      dispatch({ type: "SET_STATUS_LOST" });
       dispatch({ type: "OPEN_ALERT" });
-      setStatus();
     }
   }, [state.strikes]);
 
@@ -29,8 +27,8 @@ const App = () => {
     <>
       <AppContext.Provider value={{ state, dispatch }}>
         <CssBaseline />
-        <StyledBar status={status} />
-        <TransitionAlerts></TransitionAlerts>
+        <StyledBar status={state.status} />
+        <AlertSlide></AlertSlide>
         <Box
           style={{
             borderRadius: "20px",
@@ -48,17 +46,18 @@ const App = () => {
           }}
         ></Box>
         <Box align="center" style={{ backgroundImage: { btnBackground } }}>
-          {!status && (
+          {state.status === undefined && (
             <Button
+              size="large"
+              style={{ marginTop: "16rem", fontSize: "35px" }}
               onClick={() => {
-                setStatus("playing");
+                dispatch({ type: "SET_STATUS_PLAYING" });
               }}
             >
-              <Paper></Paper>
               Lets Have Fun with flags
             </Button>
           )}
-          {status && <Game />}
+          {state.status === "playing" && <Game />}
         </Box>
       </AppContext.Provider>
     </>
