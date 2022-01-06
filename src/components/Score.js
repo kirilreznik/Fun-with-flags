@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Stack } from "@mui/material";
 import AppContext from "../context/app-context";
 import DangerousIcon from "@mui/icons-material/Dangerous";
+
 const Score = () => {
   const { state } = useContext(AppContext);
   return (

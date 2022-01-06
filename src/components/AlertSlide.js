@@ -2,14 +2,12 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { useContext } from "react";
 import AppContext from "../context/app-context";
 import { Box } from "@material-ui/core";
-const bazinga = require("../assets/bazinga.jpg");
+import AlertImgBox from "../Styles/styled-components/AlertImgBox";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -29,11 +27,8 @@ export default function AlertDialogSlide() {
         keepMounted
         aria-describedby="alert-dialog-slide-description"
       >
-        <Box>
-          <img style={{ height: "12rem", padding: "10px" }} src={bazinga}></img>
-        </Box>
+        <AlertImgBox />
         <DialogTitle align="center">{"GAME OVER"}</DialogTitle>
-        <DialogContent></DialogContent>
         <Box align="center">
           <DialogActions style={{ justifyContent: "center" }}>
             <Button

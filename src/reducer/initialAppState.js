@@ -1,4 +1,4 @@
-import countryData from "../countryData";
+import countryData from "../data/countryData";
 export const initialAppState = {
   countries: [...countryData],
   currentCountry: countryData[Math.floor(Math.random() * countryData.length)],

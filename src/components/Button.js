@@ -1,14 +1,12 @@
 import { Button } from "@material-ui/core";
-import React, { useState } from "react";
-import AppContext from "./context/app-context";
+import React from "react";
+import AppContext from "../context/app-context";
 import { useContext } from "react";
 
 const StyledButton = (props) => {
-  const [answer, setAnswer] = useState();
   const { state, dispatch } = useContext(AppContext);
   const handleClick = (e) => {
     if (state.currentCountry.name === e.target.innerHTML) {
-      setAnswer(e.target.innerHTML);
       dispatch({
         type: "REMOVE_COUNTRY",
         payload: { name: e.target.innerHTML },
@@ -32,10 +30,3 @@ const StyledButton = (props) => {
   );
 };
 export default StyledButton;
-
-/* if (e.target.innerHTML === props.currentCountry.name) {
-  props.setUsedCountries([...props.usedCountries, e.target.innerHTML]);
-} else {
-  console.log(props.currentCountry.name);
-  console.log(e.target.innerHTML);
-} */

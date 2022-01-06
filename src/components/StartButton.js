@@ -1,5 +1,5 @@
 import React from "react";
-import AppContext from "./context/app-context";
+import AppContext from "../context/app-context";
 import { useContext } from "react";
 import { Button } from "@material-ui/core";
 const StartButton = () => {
