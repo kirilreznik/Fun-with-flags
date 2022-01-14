@@ -77,6 +77,26 @@ const AppReducer = (state, action) => {
         ...state,
         status: "lost",
       };
+    case "SET_STATUS_SUBMIT":
+      return {
+        ...state,
+        status: "submit",
+      };
+    case "SUBMIT_SCORE":
+      const newLeaderBoard = [...state.leaderBoard];
+      newLeaderBoard.push(action.payload.newEntry);
+      return {
+        ...state,
+        leaderBoard: newLeaderBoard,
+      };
+    case "GET_LEADERS":
+      const leaders = JSON.parse(localStorage.getItem("leaders"));
+      if (leaders) {
+        return {
+          ...state,
+          leaderBoard: [...leaders],
+        };
+      }
     default:
       return state;
   }

@@ -8,4 +8,5 @@ export const initialAppState = {
   score: 0,
   openAlert: false,
   status: undefined,
+  leaderBoard: [],
 };

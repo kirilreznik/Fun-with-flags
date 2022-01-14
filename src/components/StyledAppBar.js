@@ -1,25 +1,34 @@
 import React from "react";
-import { AppBar, Toolbar, Container, Button } from "@material-ui/core";
-import Score from "./Score";
+import Button from "@mui/material/Button";
+import { AppBar, Toolbar, Box } from "@mui/material";
+import { theme } from "../index";
+import { ThemeProvider } from "@mui/material";
+import Drawer from "./Drawer";
+import { logoImg, logoImgBox, toolBar } from "../Styles/Styles";
 const background = require("../assets/background.png");
-const StyledBar = (props) => {
+
+const StyledBar = () => {
   return (
-    <AppBar position="relative" elevation={0}>
-      <Toolbar>
-        <Container align="left">
-          <img style={{ width: "200px", height: "85%" }} src={background}></img>
-        </Container>
-        {props.status && <Score></Score>}
-        <Container
-          style={{ marginRight: "0", width: "500px", padding: "0" }}
-          align="right"
-        >
-          <Button>Click</Button>
-          <Button>Click</Button>
-          <Button>Click</Button>
-        </Container>
-      </Toolbar>
-    </AppBar>
+    <ThemeProvider theme={theme}>
+      <Box>
+        <AppBar position="fixed" elevation={0} color="transparent">
+          <Toolbar sx={toolBar}>
+            <Box>
+              <img style={logoImg} src={background}></img>
+            </Box>
+            <Box sx={logoImgBox}>
+              <Button color="text" href="/">
+                HOME
+              </Button>
+              <Button color="text" href="/leaderboard">
+                Leaderboard
+              </Button>
+            </Box>
+            <Drawer />
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </ThemeProvider>
   );
 };
 export default StyledBar;

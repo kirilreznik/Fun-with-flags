@@ -6,8 +6,9 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { useContext } from "react";
 import AppContext from "../context/app-context";
-import { Box } from "@material-ui/core";
-import AlertImgBox from "../Styles/styled-components/AlertImgBox";
+import { Box } from "@mui/system";
+import AlertImgBox from "../Styles/AlertImgBox";
+import SubmitForm from "./SubmitForm";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -15,7 +16,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function AlertDialogSlide() {
   const handleClose = () => {
-    dispatch({ type: "CLOSE_ALERT" });
+    dispatch({ type: "SET_STATUS_SUBMIT" });
   };
   const { state, dispatch } = useContext(AppContext);
   return (
@@ -28,21 +29,27 @@ export default function AlertDialogSlide() {
         aria-describedby="alert-dialog-slide-description"
       >
         <AlertImgBox />
-        <DialogTitle align="center">{"GAME OVER"}</DialogTitle>
+        {state.status === "submit" ? (
+          <DialogTitle align="center">{<SubmitForm />}</DialogTitle>
+        ) : (
+          <DialogTitle align="center">{"GAME OVER"}</DialogTitle>
+        )}
         <Box align="center">
-          <DialogActions style={{ justifyContent: "center" }}>
-            <Button
-              onClick={() => {
-                dispatch({ type: "CLEAR_STATE" });
-                dispatch({ type: "GET_OPTIONS" });
-                dispatch({ type: "SET_COUNTRY" });
-                dispatch({ type: "SET_STATUS_PLAYING" });
-              }}
-            >
-              LETS TRY AGAIN
-            </Button>
-            <Button onClick={handleClose}>Agree</Button>
-          </DialogActions>
+          {state.status === "lost" && (
+            <DialogActions style={{ justifyContent: "center" }}>
+              <Button
+                onClick={() => {
+                  dispatch({ type: "CLEAR_STATE" });
+                  dispatch({ type: "GET_OPTIONS" });
+                  dispatch({ type: "SET_COUNTRY" });
+                  dispatch({ type: "SET_STATUS_PLAYING" });
+                }}
+              >
+                LETS TRY AGAIN
+              </Button>
+              <Button onClick={handleClose}>SUBMIT</Button>
+            </DialogActions>
+          )}
         </Box>
       </Dialog>
     </div>

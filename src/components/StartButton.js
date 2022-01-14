@@ -1,7 +1,7 @@
 import React from "react";
 import AppContext from "../context/app-context";
 import { useContext } from "react";
-import { Button } from "@material-ui/core";
+import Button from "@mui/material/Button";
 const StartButton = () => {
   const { state, dispatch } = useContext(AppContext);
   return (

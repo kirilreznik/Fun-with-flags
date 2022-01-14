@@ -3,25 +3,31 @@ import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import App from "./components/App";
 import "./App.css";
-import { createTheme, ThemeProvider } from "@material-ui/core";
+import { createTheme, ThemeProvider } from "@mui/material";
+import AppRouter from "./routers/AppRouter";
 
-const theme = createTheme({
+export const theme = createTheme({
   palette: {
     primary: {
-      main: "#fafafa",
+      main: "#fefefe",
     },
     secondary: {
+      main: "#000000",
+    },
+    text: {
       main: "#000000",
     },
   },
 });
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
+  <AppRouter>
     <React.StrictMode>
-      <App />
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+      ,
     </React.StrictMode>
-    ,
-  </ThemeProvider>,
+  </AppRouter>,
   document.getElementById("root")
 );
 

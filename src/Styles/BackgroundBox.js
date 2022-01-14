@@ -1,21 +1,24 @@
 import { Box } from "@material-ui/core";
 const background = require("../../assets/site-background.jpg");
-const BackgroundBox = () => {
+const BackgroundBox = (props) => {
   return (
     <Box
       style={{
         borderRadius: "20px",
         backgroundImage: `url(${background})`,
-        backgroundColor: "purple",
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        width: "100vw",
-        height: "90vh",
-        opacity: "0.4",
-        position: "absolute",
         width: "90%",
-        marginLeft: "5rem",
+        height: "85vh",
+        opacity: props.opacity,
+        position: "relative",
+        left: "0",
+        right: "0",
+        top: "0",
+        bottom: "0",
+        marginLeft: "auto",
+        marginRight: "auto",
       }}
     ></Box>
   );

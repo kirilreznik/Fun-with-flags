@@ -1,6 +1,6 @@
 import React from "react";
-import { Box } from "@material-ui/core";
-const bazinga = require("../../assets/bazinga.jpg");
+import { Box } from "@mui/material";
+const bazinga = require("../assets/bazinga.jpg");
 const AlertImgBox = () => {
   return (
     <Box>
