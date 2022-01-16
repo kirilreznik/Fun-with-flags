@@ -1,11 +1,12 @@
-#Fun with flags - fun flag quiz game
+# Fun with flags - fun flag quiz game
 
-##Description
+## Description
 
 How well do you know the flags of the world?
 Test your knowledge with this fun game inspired by "The Big Bang Theory "
 
-##Technologies used
+## Technologies used
+
 Created with create-react-app and used the following libraries
 
 - React (17.0.2)
@@ -25,7 +26,7 @@ Installs dependencies
 Runs the app on the local server.<br>
 Opens http://localhost:3000
 
-##Screenshots
+## Screenshots
 
 Web
 
