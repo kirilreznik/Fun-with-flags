@@ -6,16 +6,13 @@
 body {
   background-color: #fafafa;
 }
-.icon {
-  padding: 0;
-  margin: 0;
-}
+
 .background {
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.7),
       rgb(255, 255, 255, 0.7)
     ),
-    url("./assets//site-background.jpg");
+    url("./assets/site-background.jpg");
   border-radius: 20px;
   background-position: center;
   background-size: cover;

@@ -11,7 +11,7 @@ import LeaderboardIcon from "@mui/icons-material/Leaderboard";
 import { useNavigate } from "react-router";
 import MenuIcon from "@mui/icons-material/Menu";
 export default function Drawer() {
-  const [state, setState] = React.useState({
+  const [position, setPosition] = React.useState({
     right: false,
   });
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export default function Drawer() {
       return;
     }
 
-    setState({ ...state, [anchor]: open });
+    setPosition({ ...position, [anchor]: open });
   };
 
   const list = (anchor) => (
@@ -75,7 +75,7 @@ export default function Drawer() {
         </Button>
         <SwipeableDrawer
           anchor={"right"}
-          open={state["right"]}
+          open={position["right"]}
           onClose={toggleDrawer("right", false)}
           onOpen={toggleDrawer("right", true)}
         >

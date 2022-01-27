@@ -1,13 +1,14 @@
-import * as React from "react";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogTitle from "@mui/material/DialogTitle";
-import Slide from "@mui/material/Slide";
-import { useContext } from "react";
-import AppContext from "../context/app-context";
-import { DialogContentText } from "@mui/material";
-import { Box } from "@mui/system";
+import React, { useContext } from "react";
+import AppContext from "../../context/app-context";
+import {
+  DialogContentText,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogTitle,
+  Slide,
+  Box,
+} from "@mui/material";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="right" ref={ref} {...props} />;

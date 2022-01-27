@@ -1,20 +1,21 @@
-import * as React from "react";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogTitle from "@mui/material/DialogTitle";
-import Slide from "@mui/material/Slide";
-import { useContext } from "react";
-import AppContext from "../context/app-context";
-import { Box } from "@mui/system";
-import AlertImgBox from "../Styles/AlertImgBox";
-import SubmitForm from "./SubmitForm";
+import React, { useContext } from "react";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogTitle,
+  Slide,
+  Box,
+} from "@mui/material";
+import AppContext from "../../context/app-context";
+import AlertImage from "./AlertSlide.styled";
+import SubmitForm from "../submit-form/SubmitForm";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function AlertDialogSlide() {
+export default function AlertSlide() {
   const handleClose = () => {
     dispatch({ type: "SET_STATUS_SUBMIT" });
   };
@@ -28,7 +29,7 @@ export default function AlertDialogSlide() {
         keepMounted
         aria-describedby="alert-dialog-slide-description"
       >
-        <AlertImgBox />
+        <AlertImage />
         {state.status === "submit" ? (
           <DialogTitle align="center">{<SubmitForm />}</DialogTitle>
         ) : (

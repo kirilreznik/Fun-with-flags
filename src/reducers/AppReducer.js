@@ -1,6 +1,6 @@
 import getOptions from "../functions/getOptions";
 import { initialAppState } from "./initialAppState";
-const AppReducer = (state, action) => {
+const AppReducer = (state = initialAppState, action) => {
   switch (action.type) {
     case "CLEAR_STATE":
       return {
@@ -17,7 +17,12 @@ const AppReducer = (state, action) => {
     case "GET_OPTIONS":
       return {
         ...state,
-        options: getOptions(state.countries, state.currentCountry),
+        options: getOptions(
+          state.countries.filter((country) => {
+            return country !== state.currentCountry;
+          }),
+          state.currentCountry
+        ),
       };
     case "REMOVE_COUNTRY":
       return {

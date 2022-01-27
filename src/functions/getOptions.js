@@ -4,7 +4,7 @@ const getOptions = (countries, currentCountry) => {
     const random2 = Math.floor(Math.random() * countries.length);
     const options = [];
     if (random1 === random2) {
-      const random1 = Math.floor(Math.random() * countries.length);
+      getOptions(countries, currentCountry);
     } else {
       options.push(countries[random1].name);
       options.push(countries[random2].name);
@@ -14,7 +14,7 @@ const getOptions = (countries, currentCountry) => {
     const shuffle = (array) => {
       let currentIndex = array.length,
         randomIndex;
-      while (currentIndex != 0) {
+      while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
         [array[currentIndex], array[randomIndex]] = [
@@ -25,11 +25,9 @@ const getOptions = (countries, currentCountry) => {
 
       return array;
     };
-    if (random1 === random2) {
-      getOptions();
-    } else {
-      return shuffle(options);
-    }
+
+    return shuffle(options);
   }
 };
+
 export default getOptions;

@@ -1,9 +1,8 @@
-import { Button } from "@mui/material";
-import React from "react";
-import AppContext from "../context/app-context";
-import { useContext } from "react";
+import React, { useContext } from "react";
+import AppContext from "../../context/app-context";
 import { ThemeProvider } from "@mui/material";
-import { theme } from "../index";
+import { theme } from "../../index";
+import { StyledButton } from "./OptionButton.styled";
 
 const OptionButton = (props) => {
   const { state, dispatch } = useContext(AppContext);
@@ -11,7 +10,7 @@ const OptionButton = (props) => {
     if (state.currentCountry.name === e.target.name) {
       dispatch({
         type: "REMOVE_COUNTRY",
-        payload: { name: e.target.innerHTML },
+        payload: { name: e.target.name },
       });
       dispatch({ type: "SET_COUNTRY" });
       dispatch({ type: "CLEAR_ERROR" });
@@ -23,15 +22,14 @@ const OptionButton = (props) => {
   };
   return (
     <ThemeProvider theme={theme}>
-      <Button
+      <StyledButton
         color="text"
         name={props.option}
-        className="optionBtn"
         onClick={handleClick}
         variant="text"
       >
         {props.option}
-      </Button>
+      </StyledButton>
     </ThemeProvider>
   );
 };
