@@ -1,8 +1,8 @@
 import React from "react";
-import { AppBar, Box, ThemeProvider, Button } from "@mui/material";
+import { AppBar, ThemeProvider, Button } from "@mui/material";
 import { theme } from "../../index";
 import Drawer from "../drawer/Drawer";
-import { ButtonsContainer, StyledToolBar, StyledLogo } from "./AppBar.styled";
+import { StyledToolBar, StyledLogo } from "./AppBar.styled";
 import logo from "../../assets/background.png";
 
 const StyledBar = () => {
