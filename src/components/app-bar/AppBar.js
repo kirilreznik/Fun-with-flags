@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, ThemeProvider, Button } from "@mui/material";
+import { AppBar, ThemeProvider, Button, Box } from "@mui/material";
 import { theme } from "../../index";
 import Drawer from "../drawer/Drawer";
 import { StyledToolBar, StyledLogo } from "./AppBar.styled";
@@ -12,7 +12,7 @@ const StyledBar = () => {
         <StyledToolBar>
           <StyledLogo src={logo} alt="logo" />
           <Drawer />
-          <ButtonsContainer
+          <Box
             sx={{
               display: {
                 xs: "none",
@@ -29,7 +29,7 @@ const StyledBar = () => {
             <Button color="text" href="/leaderboard">
               Leaderboard
             </Button>
-          </ButtonsContainer>
+          </Box>
         </StyledToolBar>
       </AppBar>
     </ThemeProvider>
