@@ -4,7 +4,8 @@
 
 How well do you know the flags of the world?
 Test your knowledge with this fun game inspired by "The Big Bang Theory "
-
+Deployed in Netlify : 
+https://fun-with-flags.netlify.app/
 ## Technologies used
 
 Created with create-react-app and used the following libraries
