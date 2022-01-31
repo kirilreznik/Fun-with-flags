@@ -1,5 +1,5 @@
 # Fun with flags - fun flag quiz game
-Deployed in Netlify : 
+Deployed on Netlify : 
 https://fun-with-flags.netlify.app/
 ## Description
 How well do you know the flags of the world?
